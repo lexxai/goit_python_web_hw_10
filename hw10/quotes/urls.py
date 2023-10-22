@@ -5,4 +5,5 @@ app_name = 'quotes'
 
 urlpatterns = [
     path('', views.main, name='main'),
+    path('<int:page>', views.main, name='main_paginate'),  
 ]
