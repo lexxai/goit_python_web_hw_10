@@ -22,6 +22,21 @@ def import_records():
         }
         Author.objects.get_or_create(**author_data)
 
+    quotes = db.quotes.find()
+    tags = set()
+    for quote in quotes:
+        for tag in quote.get("tags"):
+            if tag:
+                tags.add(tag)
+
+    tags_obj = []
+    for tag in tags:
+        # print(f"{tag=}")
+        t, *_ = Tag.objects.get_or_create(name=tag)
+        tags_obj.append(t)
+    
+    # print(tags_obj)
+
 
 if __name__ == "__main__":
     import_records()
