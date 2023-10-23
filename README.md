@@ -25,16 +25,28 @@ GoIT, Python WEB, Homework number 10. Django. PostgreSQL. Docker. MongoDB.
 # RESULT
 
 
-
 4. MongoDB -> PostgresSQL
 
-python -m utils.migration
+    python -m utils.migration
 
-`scripts\mongo2pg.cmd`
+    `scripts\mongo2pg.cmd`
 
-MongoDB (cloud):
-![](doc/migration-mongo-01.png)
-PostgreSQL (docker):
-![](doc/migration-pg-01.png)
+    MongoDB (cloud):
+    ![migration-mongo](doc/migration-mongo-01.png)
+    PostgreSQL (docker):
+    ![migration-pg](doc/migration-pg-01.png)
 
 
+5. Author
+   ![Author](doc/author_01.png)
+6. Quotes
+    ![quotes_list_01](doc/quotes_list_01.png)
+
+## Додаткова частина
+
+1. Quotes by tags
+    ![quote_bytag](doc/quote_bytag_list_01.png)
+
+3. Pagination
+    ![quotes_list_01](doc/quotes_list_01.png)
+    ![quotes_list_02](doc/quotes_list_02.png)
