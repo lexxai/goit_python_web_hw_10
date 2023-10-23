@@ -20,3 +20,21 @@ GoIT, Python WEB, Homework number 10. Django. PostgreSQL. Docker. MongoDB.
 2. Реалізуйте блок "Top Ten tags" та виведення найпопулярніших тегів.
 3. Реалізуйте пагінацію. Це кнопки next та previous
 4. Замість перенесення даних з бази даних MongoDB, реалізуйте можливість скрапінгу даних прямо з вашого сайту по натисканню певної кнопки на формі та наповнення бази даних сайту.
+
+
+# RESULT
+
+
+
+4. MongoDB -> PostgresSQL
+
+python -m utils.migration
+
+`scripts\mongo2pg.cmd`
+
+MongoDB (cloud):
+![](doc/migration-mongo-01.png)
+PostgreSQL (docker):
+![](doc/migration-pg-01.png)
+
+
