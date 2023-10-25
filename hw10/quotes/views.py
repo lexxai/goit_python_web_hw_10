@@ -8,7 +8,7 @@ from django.contrib.auth.models import User
 
 from .models import Quote, Author, Tag
 
-from .froms import AuthorForm
+from .froms import AuthorForm, TagForm
 
 
 PER_PAGE = 4
@@ -94,6 +94,27 @@ class AddAuthorView(LoginRequiredMixin, View):
             form.save()
             fullname = form.cleaned_data["fullname"]
             messages.success(request, f"Author '{fullname}' was created...")
+            return render(
+                request, self.template_name, context={"form": self.form_class}
+            )
+        else:
+            messages.error(request, "Not added...")
+            return render(request, self.template_name, context={"form": form})
+
+
+class AddTagView(LoginRequiredMixin, View):
+    form_class = TagForm
+    template_name = "quotes/add_tag.html"
+
+    def get(self, request):
+        return render(request, self.template_name, context={"form": self.form_class})
+
+    def post(self, request):
+        form = self.form_class(request.POST)
+        if form.is_valid():
+            form.save()
+            fullname = form.cleaned_data["name"]
+            messages.success(request, f"Tag '{fullname}' was created...")
             return render(
                 request, self.template_name, context={"form": self.form_class}
             )

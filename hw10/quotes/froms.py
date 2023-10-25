@@ -1,7 +1,7 @@
 from django import forms
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 
-from .models import Author
+from .models import Author, Tag
 
 # fullname = models.CharField(max_length=120)
 # born_date = models.CharField(max_length=50)
@@ -36,3 +36,17 @@ class AuthorForm(forms.ModelForm):
     class Meta:
         model = Author
         fields = ["fullname", "born_date", "born_location", "description"]
+
+
+
+class TagForm(forms.ModelForm):
+    name = forms.CharField(
+        max_length=50,
+        required=True,
+        widget=forms.TextInput(
+            attrs={"class": "form-control", "placeholder": "Enter name"}
+        ),
+    )
+    class Meta:
+        model = Tag
+        fields = ["name"]

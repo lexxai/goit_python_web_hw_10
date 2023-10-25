@@ -41,7 +41,10 @@ GoIT, Python WEB, Homework number 10. Django. PostgreSQL. Docker. MongoDB.
     ![user-signup-01](doc/add_author_01.png)
 
     ![user-signup-02](doc/add_author_02.png)
+- Add Tag only Auth
+    ![add-tag-01](doc/add_tag_01.png)
 
+    ![add-tag-02](doc/add_tag_02.png)
 
 
 
