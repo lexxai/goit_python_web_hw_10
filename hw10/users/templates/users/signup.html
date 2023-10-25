@@ -17,10 +17,15 @@
     {% if messages %}
     <div>
         {% for message in messages %}
-        <div {% if message.tags %} role="alert" class="text-center alert alert-primary alert-warning alert-{{ message.tags }}" {% endif %}>{{ message }}</div>
+        <div role="alert" class="text-center alert alert-primary {% if message.tags %} alert-{{ message.tags }} {% endif %}">{{ message }}</div>
         {% endfor %}
     </div>
     {% endif %}
+    {% for error in form.non_field_errors %}
+    <div>
+        <div role="alert" class="text-center alert alert-warning">{{ error }}</div>
+    </div>
+    {% endfor %}
     <h1 class="h3 mb-3 fw-normal text-center">Please SignUp</h1>
     <form method="post" action="{% url 'users:signup' %}">
         {% csrf_token %}
