@@ -24,6 +24,18 @@ GoIT, Python WEB, Homework number 10. Django. PostgreSQL. Docker. MongoDB.
 
 # RESULT
 
+1. User SignUP / Login
+    ![user-signup-01](doc/user-signup-01.png)
+
+    ![user-signup-02](doc/user-signup-02.png)
+
+    ![user-signup-03](doc/user-signup-03.png)
+
+    ![user-signup-04](doc/user-signup-04.png)
+
+    ![user-signup-05](doc/user-signup-05.png)
+
+    ![user-logged-01](doc/user-logged-01.png)
 
 4. MongoDB -> PostgresSQL
 

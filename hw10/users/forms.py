@@ -1,8 +1,6 @@
 from django import forms
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib.auth.models import User
-from django.contrib.auth import password_validation
-from django.core.exceptions import ValidationError
 
 
 class RegisterForm(UserCreationForm):
@@ -19,11 +17,9 @@ class RegisterForm(UserCreationForm):
         required=True,
         min_length=8,
         max_length=25,
-        strip=False,
         widget=forms.PasswordInput(
             attrs={"autocomplete": "new-password", "class": "form-control"}
         ),
-        help_text=password_validation.password_validators_help_text_html(),
     )
 
     password2 = forms.CharField(
@@ -34,8 +30,6 @@ class RegisterForm(UserCreationForm):
         widget=forms.PasswordInput(
             attrs={"autocomplete": "new-password", "class": "form-control"}
         ),
-        strip=False,
-        help_text="Enter the same password as before, for verification.",
     )
 
     class Meta:
@@ -45,22 +39,6 @@ class RegisterForm(UserCreationForm):
             "password1",
             "password2",
         ]
-
-    # def clean_password2(self):
-    #     # Check that the two password entries match
-    #     password1 = self.cleaned_data.get("password1")
-    #     password2 = self.cleaned_data.get("password2")
-    #     if password1 and password2 and password1 != password2:
-    #         raise ValidationError("Passwords don't match")
-    #     return password2
-
-    # def save(self, commit=True):
-    #     # Save the provided password in hashed format
-    #     user = super().save(commit=False)
-    #     user.set_password(self.cleaned_data["password1"])
-    #     if commit:
-    #         user.save()
-    #     return user
 
 
 class LoginForm(AuthenticationForm):
@@ -86,13 +64,13 @@ class LoginForm(AuthenticationForm):
         ]
 
 
-class DeleteForm(forms.ModelForm):
-    username = forms.CharField(
-        max_length=100, required=True, widget=forms.HiddenInput()
-    )
+# class DeleteForm(forms.ModelForm):
+#     username = forms.CharField(
+#         max_length=100, required=True, widget=forms.HiddenInput()
+#     )
 
-    class Meta:
-        model = User
-        fields = [
-            "username",
-        ]
+#     class Meta:
+#         model = User
+#         fields = [
+#             "username",
+#         ]
