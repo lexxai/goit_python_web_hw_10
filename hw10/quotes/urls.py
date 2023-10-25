@@ -9,4 +9,5 @@ urlpatterns = [
     path('author/<str:author>', views.author, name='author'),  
     path('tag/<str:tag>', views.tag, name='tag'),  
     path('tag/<str:tag>/<int:page>', views.tag, name='tag_paginate'),  
+    path('add/author', views.AddAuthorView.as_view(), name='add_author'),  
 ]

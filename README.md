@@ -37,6 +37,14 @@ GoIT, Python WEB, Homework number 10. Django. PostgreSQL. Docker. MongoDB.
 
     ![user-logged-01](doc/user-logged-01.png)
 
+2. Add Authors only Auth
+    ![user-signup-01](doc/add_author_01.png)
+
+    ![user-signup-02](doc/add_author_02.png)
+
+
+
+
 4. MongoDB -> PostgresSQL
 
     python -m utils.migration
