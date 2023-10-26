@@ -46,6 +46,19 @@ GoIT, Python WEB, Homework number 10. Django. PostgreSQL. Docker. MongoDB.
 
     ![add-tag-02](doc/add_tag_02.png)
 
+3. Add Quote only Auth
+    ![add-quote-01](doc/add_quote_01.png)
+
+    ![add-quote-02](doc/add_quote_02.png)
+
+    ![add-quote-03](doc/add_quote_03.png)
+
+    ![add-quote-04](doc/add_quote_04.png)
+
+    ![add-quote-05](doc/add_quote_05.png)
+
+
+
 
 
 4. MongoDB -> PostgresSQL

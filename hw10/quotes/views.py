@@ -8,7 +8,7 @@ from django.contrib.auth.models import User
 
 from .models import Quote, Author, Tag
 
-from .froms import AuthorForm, TagForm
+from .froms import AuthorForm, QuoteForm, TagForm
 
 
 PER_PAGE = 4
@@ -81,6 +81,33 @@ def add_author(request):
     return render(request, "quotes/add_author.html", context)
 
 
+@login_required
+def add_quote(request, id: int = 0):
+    tags = Tag.objects.all()
+    authors = Author.objects.all()
+
+    if request.method == "POST":
+        form = QuoteForm(request.POST)
+        print(request.POST)
+        if form.is_valid():
+            new_quote = form.save(commit=False)
+            new_quote.quote = form.cleaned_data['quote']
+            new_quote.author = Author.objects.filter(pk=form.cleaned_data['author']).get()
+            new_quote.save()
+
+            choice_tags = Tag.objects.filter(
+                name__in=request.POST.getlist("tags")
+            )
+            for tag in choice_tags.iterator():
+                new_quote.tags.add(tag)
+            messages.success(request, "Quote was added....")
+        else:
+            messages.error(request, "Not added....")
+            return render(request, "quotes/add_quote.html", {"tags": tags, "authors": authors, "form": form})
+
+    return render(request, "quotes/add_quote.html", {"tags": tags, "authors": authors, "form": QuoteForm()})
+
+
 class AddAuthorView(LoginRequiredMixin, View):
     form_class = AuthorForm
     template_name = "quotes/add_author.html"
@@ -121,3 +148,5 @@ class AddTagView(LoginRequiredMixin, View):
         else:
             messages.error(request, "Not added...")
             return render(request, self.template_name, context={"form": form})
+
+

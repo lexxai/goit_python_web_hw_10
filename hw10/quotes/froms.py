@@ -1,7 +1,7 @@
 from django import forms
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 
-from .models import Author, Tag
+from .models import Author, Quote, Tag
 
 # fullname = models.CharField(max_length=120)
 # born_date = models.CharField(max_length=50)
@@ -38,7 +38,6 @@ class AuthorForm(forms.ModelForm):
         fields = ["fullname", "born_date", "born_location", "description"]
 
 
-
 class TagForm(forms.ModelForm):
     name = forms.CharField(
         max_length=50,
@@ -47,6 +46,27 @@ class TagForm(forms.ModelForm):
             attrs={"class": "form-control", "placeholder": "Enter name"}
         ),
     )
+
     class Meta:
         model = Tag
         fields = ["name"]
+
+    # quote =  models.TextField()
+    # tags = models.ManyToManyField(Tag)
+    # author = models.ForeignKey(Author, on_delete=models.CASCADE, default=None, null=True)
+
+
+class QuoteForm(forms.ModelForm):
+    quote = forms.CharField(
+        required=True,
+        widget=forms.Textarea(
+            attrs={"class": "form-control", "placeholder": "Enter quote"}
+        ),
+    )
+    author = forms.IntegerField(widget=forms.Select())
+    # tags = forms.MultiValueField(widget=forms.SelectMultiple(fields=))
+
+    class Meta:
+        model = Quote
+        fields = ["quote"]
+        exclude = ["tags", "author"]
