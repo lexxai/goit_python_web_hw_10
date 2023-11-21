@@ -91,6 +91,9 @@ GoIT, Python WEB, Homework number 10. Django. PostgreSQL. Docker. MongoDB.
 
 ## Addon HW 13
 ### PASSWORD RESET
+Added email filed:
+![](doc/signup-01.png)
+
 ![](doc/password-reset-06.png)
 
 ![](doc/password-reset-05.png)
