@@ -104,4 +104,11 @@ GoIT, Python WEB, Homework number 10. Django. PostgreSQL. Docker. MongoDB.
 ![](doc/password-reset-04.png)
 
 
+### PROFILE
+![](doc/profile-01.png)
+
+![](doc/profile-02-meida.png)
+
+![](doc/user-delete-01.png)
+
 
