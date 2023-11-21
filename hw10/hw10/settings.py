@@ -149,13 +149,24 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 MEDIA_ROOT = BASE_DIR / "media"
 MEDIA_URL = "/media/"
 
+EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
+EMAIL_HOST = os.getenv("MAIL_SERVER", "smtp.meta.ua")
+EMAIL_PORT = int(os.getenv("MAIL_PORT", 465))
+EMAIL_STARTTLS = False
+EMAIL_USE_SSL = True
+EMAIL_USE_TLS = False
+EMAIL_HOST_USER = os.getenv("MAIL_USERNAME", "youruser@meta.ua")
+EMAIL_HOST_PASSWORD = os.getenv("MAIL_PASSWORD", "yourpassword")
+DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
+
+
 LOGIN_URL = "/users/login"
 LOGIN_REDIRECT_URL = "/"
 LOGOUT_REDIRECT_URL = "/"
 
 
 # logging
-LOGGING = {
+LOGGING1 = {
     "version": 1,
     "filters": {
         "require_debug_true": {

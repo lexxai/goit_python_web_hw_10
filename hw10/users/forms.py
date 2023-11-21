@@ -2,6 +2,8 @@ from django import forms
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib.auth.models import User
 
+from .models import Profile
+
 
 class RegisterForm(UserCreationForm):
     username = forms.CharField(
@@ -9,6 +11,13 @@ class RegisterForm(UserCreationForm):
         required=True,
         widget=forms.TextInput(
             attrs={"class": "form-control", "placeholder": "Enter username"}
+        ),
+    )    
+    email = forms.CharField(
+        max_length=100,
+        required=True,
+        widget=forms.TextInput(
+            attrs={"class": "form-control", "placeholder": "Enter email"}
         ),
     )
 
@@ -36,6 +45,7 @@ class RegisterForm(UserCreationForm):
         model = User
         fields = [
             "username",
+            "email",
             "password1",
             "password2",
         ]
@@ -74,3 +84,22 @@ class LoginForm(AuthenticationForm):
 #         fields = [
 #             "username",
 #         ]
+
+
+class ProfileForm(forms.ModelForm):
+    avatar = forms.ImageField(widget=forms.FileInput())
+
+    class Meta:
+        model = Profile
+        fields = ["avatar"]
+
+
+class DeleteForm(forms.ModelForm):
+    username = forms.CharField(max_length=100, required=True, widget=forms.HiddenInput())
+
+    class Meta:
+        model = User
+        fields = [
+            "username",
+        ]
+
