@@ -86,3 +86,22 @@ GoIT, Python WEB, Homework number 10. Django. PostgreSQL. Docker. MongoDB.
 3. Pagination
     ![quotes_list_01](doc/quotes_list_01.png)
     ![quotes_list_02](doc/quotes_list_02.png)
+
+
+
+## Addon HW 13
+### PASSWORD RESET
+![](doc/password-reset-06.png)
+
+![](doc/password-reset-05.png)
+
+![](doc/password-reset-01.png)
+
+![](doc/password-reset-02.png)
+
+![](doc/password-reset-03.png)
+
+![](doc/password-reset-04.png)
+
+
+

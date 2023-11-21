@@ -1,0 +1,73 @@
+{% extends "quotes/base.html" %}
+
+{% block content %}
+
+
+<div>
+    <h1>Profile page: {{user.username}}</h1>
+    <img src="{{ user.profile.avatar.url }}" alt="avatar of user"/>
+</div>
+
+{% if messages %}
+<div>
+    {% for message in messages %}
+    <div {% if message.tags %} class="alert-{{ message.tags }}" {% endif %}>{{ message }}</div>
+    {% endfor %}
+</div>
+{% endif %}
+
+<form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    <div class="form-row">
+        <div class="col-md-5">
+            <div class="form-group">
+                <label class="small mb-1">Change Avatar:</label>
+                {{ profile_form.avatar }}
+                <span>{{ profile_form.errors.avatar }}</span>
+            </div>
+        </div>
+    </div>
+    <div class="grid">
+        <button type="submit">Save Changes</button>
+        <button type="reset" class="secondary">Reset</button>
+    </div>
+
+</form>
+
+<nav>
+    <a role="button"  class="contrast" href="{% url 'users:delete' %}" 
+    data-target="modal-example" onClick="toggleModal(event)">DELETE USER</a>
+</nav>
+<dialog id="modal-example">
+        <article>
+            <a href="#close"
+            aria-label="Close"
+            class="close"
+            data-target="modal-example"
+            onClick="toggleModal(event)">
+            </a>
+            <h3>Confirm your action!</h3>
+            <p>
+            Your action may result in the deletion of records. Are you sure?
+            </p>
+            <footer>
+            <a href="#cancel"
+                role="button"
+                class="secondary"
+                data-target="modal-example"
+                onClick="toggleModal(event)">
+                Cancel
+            </a>
+            <a href="#"
+                role="button"
+                data-target=""
+                onClick="onConfiramtion()">
+                Confirm
+            </a>
+            </footer>
+        </article>
+</dialog>
+    <!-- Modal -->
+    <script src="/static/noteapp/js/modal.js"></script>
+
+{% endblock content %}
