@@ -116,7 +116,7 @@ def profile(request):
 @login_required
 def deleteuser(request):
     if not request.user.is_authenticated:
-        return redirect(to="quotes:main")
+        return redirect(to="users:logout")
 
     if request.method == "POST":
         form = DeleteForm(request.POST)
