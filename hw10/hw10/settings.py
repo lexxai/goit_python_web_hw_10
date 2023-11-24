@@ -30,6 +30,8 @@ SECRET_KEY = os.getenv(
     "SECRET_KEY", "django-insecure-+8d3(#k40g2ve)xx#j7%q-9+myvm_zw6&y&+tprr$)++nv6lbg"
 )
 
+assert SECRET_KEY is not None, "SECRET_KEY MUST BE on .env"
+
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
